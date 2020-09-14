@@ -17,7 +17,7 @@ router.get("/profile", auth, ctrlProfile.profileRead);
 
 // auth
 router.post(
-  "register",
+  "/register",
   [
     check("email")
       .isEmail()
@@ -34,7 +34,7 @@ router.post(
   ctrlAuth.register
 );
 router.post(
-  "login",
+  "/login",
   [
     check("email")
       .isEmail()
