@@ -14,6 +14,8 @@ export class RegisterComponent {
     password: '',
   };
 
+  errors: any[] = [];
+
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   register(): void {
@@ -23,6 +25,11 @@ export class RegisterComponent {
       },
       (err) => {
         console.error(err);
+        if (err.error.message) {
+          this.errors = [err.error.message];
+        } else {
+          this.errors = err.error.errors.map((e: any) => e.msg);
+        }
       }
     );
   }

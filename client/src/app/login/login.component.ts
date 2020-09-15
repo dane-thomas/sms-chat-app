@@ -13,6 +13,8 @@ export class LoginComponent {
     password: '',
   };
 
+  errors: any[] = [];
+
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   login(): void {
@@ -22,6 +24,11 @@ export class LoginComponent {
       },
       (err) => {
         console.error(err);
+        if (err.error.message) {
+          this.errors = [err.error.message];
+        } else {
+          this.errors = err.error.errors.map((e: any) => e.msg);
+        }
       }
     );
   }

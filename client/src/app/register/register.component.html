@@ -1,74 +1,83 @@
-<form (submit)="register()" #registerForm="ngForm">
-  <div class="form-group">
-    <label for="name">Full name</label>
-    <input
-      id="name"
-      type="text"
-      class="form-control"
-      name="name"
-      placeholder="Enter your name"
-      [(ngModel)]="credentials.name"
-      required
-      minlength="4"
-      #name="ngModel"
-    />
-    <div
-      *ngIf="name.invalid && (name.dirty || name.touched)"
-      class="alert alert-danger"
-    >
-      <div *ngIf="name.errors.required">Name is required.</div>
-      <div *ngIf="name.errors.minlength">
-        Name must be at least 4 characters long.
+<div class="register">
+  <div class="card card--shadow">
+    <span class="title">Register</span>
+    <form (submit)="register()" #registerForm="ngForm">
+      <div class="form-group">
+        <label class="form-group__label" for="name">Full name</label>
+        <input
+          id="name"
+          type="text"
+          class="form-group__control"
+          name="name"
+          placeholder="Enter your name"
+          [(ngModel)]="credentials.name"
+          required
+          minlength="4"
+          #name="ngModel"
+        />
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert alert--danger"
+        >
+          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input
-      id="email"
-      type="text"
-      class="form-control"
-      name="email"
-      placeholder="placeholder@example.com"
-      [(ngModel)]="credentials.email"
-      required
-      #email="ngModel"
-    />
-    <div
-      *ngIf="email.invalid && (email.dirty || email.touched)"
-      class="alert alert-danger"
-    >
-      <div *ngIf="email.errors.required">Email is required.</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      id="password"
-      type="password"
-      class="form-control"
-      name="password"
-      placeholder="Password"
-      [(ngModel)]="credentials.password"
-      required
-      minlength="8"
-      #password="ngModel"
-    />
-    <div
-      *ngIf="password.invalid && (password.dirty || password.touched)"
-      class="alert alert-danger"
-    >
-      <div *ngIf="password.errors.required">Password is required.</div>
-      <div *ngIf="password.errors.minlength">
-        Password must be at least 8 characters long.
+      <div class="form-group">
+        <label class="form-group__label" for="email">Email address</label>
+        <input
+          id="email"
+          type="text"
+          class="form-group__control"
+          name="email"
+          placeholder="placeholder@example.com"
+          [(ngModel)]="credentials.email"
+          required
+          #email="ngModel"
+        />
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="alert alert--danger"
+        >
+          <div *ngIf="email.errors.required">Email is required</div>
+        </div>
       </div>
-    </div>
+      <div class="form-group">
+        <label class="form-group__label" for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-group__control"
+          name="password"
+          placeholder="********"
+          [(ngModel)]="credentials.password"
+          required
+          minlength="8"
+          #password="ngModel"
+        />
+        <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert alert--danger"
+        >
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 8 characters long
+          </div>
+        </div>
+      </div>
+      <ul *ngIf="errors.length > 0" class="alert alert--danger">
+        <li *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+      <button
+        type="submit"
+        class="button--primary"
+        [class.button--disabled]="!registerForm.form.valid"
+        [disabled]="!registerForm.form.valid"
+      >
+        Register
+      </button>
+    </form>
   </div>
-  <button
-    type="submit"
-    class="btn btn-default"
-    [disabled]="!registerForm.form.valid"
-  >
-    Register
-  </button>
-</form>
+</div>

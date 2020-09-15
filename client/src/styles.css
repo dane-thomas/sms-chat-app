@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #fffbf2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  line-height: normal;
+  overflow: visible;
+  padding: 0.5em 1em;
+  margin: 0;
+  border-radius: 0.5em;
+  -webkit-appearance: button; /* for input */
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.button--primary {
+  background: #ffa500;
+  color: white;
+}
+
+.button--secondary {
+  background: none;
+  color: #ffa500;
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.card {
+  background: white;
+  padding: 1em;
+  border-radius: 1em;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card--shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.alert {
+  width: 20vw;
+  margin-top: 0.25em;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.alert--danger {
+  background: #ffe6e6;
+  border: #990303 solid 2px;
+}

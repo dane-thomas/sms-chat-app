@@ -1,0 +1,49 @@
+.register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 40vw;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  width: 20vw;
+}
+
+.form-group__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group__control {
+  width: 20vw;
+  appearance: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.alert {
+  width: 20vw;
+  margin-top: 0.25em;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.alert--danger {
+  background: #ffe6e6;
+  border: #990303 solid 2px;
+}
