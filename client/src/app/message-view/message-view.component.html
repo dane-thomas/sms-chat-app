@@ -1,0 +1,21 @@
+<div class="message-view">
+  <div class="message__header">A person</div>
+  <div class="message__content">
+    <app-message-bubble *ngFor="let message of messages" [message]="message">
+    </app-message-bubble>
+  </div>
+  <form (submit)="send()" class="message__input">
+    <textarea
+      name="message"
+      autocomplete="off"
+      autofocus
+      [(ngModel)]="message"
+      (keydown)="sendOnEnter($event)"
+      class="message__input__box"
+    >
+    </textarea>
+    <button type="submit" class="button--secondary message__input__send">
+      Send
+    </button>
+  </form>
+</div>

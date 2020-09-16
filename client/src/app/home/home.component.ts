@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService, TokenPayload } from '../authentication.service';
 import { Router } from '@angular/router';
 
@@ -7,12 +7,6 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
-
-  ngOnInit(): void {
-    if (this.auth.isLoggedIn()) {
-      // this.router.navigateByUrl('/profile');
-    }
-  }
 }

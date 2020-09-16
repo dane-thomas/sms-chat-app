@@ -41,8 +41,10 @@
           <div *ngIf="password.errors.required">Password is required</div>
         </div>
       </div>
-      <ul *ngIf="errors.length > 0" class="alert alert--danger">
-        <li *ngFor="let error of errors">{{ error }}</li>
+      <ul *ngIf="error" class="alert alert--danger">
+        {{
+          error
+        }}
       </ul>
       <button
         type="submit"

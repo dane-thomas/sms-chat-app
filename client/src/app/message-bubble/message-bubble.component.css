@@ -1,0 +1,43 @@
+.message-bubble {
+  display: inline-block;
+  margin: 1rem;
+  background: #ffc04d;
+  padding: 1em 2em;
+  position: relative;
+  border-radius: 5rem;
+}
+
+.message--sent {
+  background: #ffc04d;
+}
+
+.message--sent:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid #ffc04d;
+  border-top: 1rem solid #ffc04d;
+  border-bottom: 1rem solid transparent;
+  right: 1.5em;
+  bottom: -1rem;
+}
+
+.message--received {
+  background: #ffe9bf;
+  align-self: flex-start;
+}
+
+.message--received:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 1rem solid #ffe9bf;
+  border-right: 1rem solid transparent;
+  border-top: 1rem solid #ffe9bf;
+  border-bottom: 1rem solid transparent;
+  left: 1.5rem;
+  bottom: -1rem;
+}

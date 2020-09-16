@@ -27,6 +27,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(passport.initialize());
 app.use("/api", routesAPI);
 
+// send client
+app.use("/", express.static(path.join(__dirname, "./client/dist/client")));
+app.all("*", function (req, res) {
+  res.status(200).sendFile(`/`, { root: "./client/dist/client" });
+});
+// app.get("/", (req, res) => {
+//   res.sendFile("index.html");
+// });
+
 // catch 404 and send to error handler
 app.use((req, res, next) => {
   next(createError(404));

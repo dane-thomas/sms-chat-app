@@ -8,7 +8,11 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
@@ -38,7 +42,8 @@ userSchema.methods.generateJwt = function () {
     {
       _id: this._id,
       email: this.email,
-      name: this.name,
+      firstName: this.firstName,
+      lastName: this.lastName,
       exp: parseInt(expiry.getTime() / 1000),
     },
     process.env.JWT_SECRET

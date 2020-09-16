@@ -1,0 +1,37 @@
+.message {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  column-gap: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.message--selected {
+  background: #ffe9bf;
+}
+
+.message__image {
+  background: #996300;
+  height: 48px;
+  width: 48px;
+  border-radius: 100rem;
+}
+
+.message__content {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.message__title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  white-space: nowrap;
+}
+
+.message__preview {
+  white-space: nowrap;
+}

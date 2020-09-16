@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   credentials: TokenPayload = {
     email: '',
-    name: '',
+    firstName: '',
+    lastName: '',
     password: '',
   };
 
@@ -21,15 +22,11 @@ export class RegisterComponent {
   register(): void {
     this.auth.register(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/chat');
       },
       (err) => {
         console.error(err);
-        if (err.error.message) {
-          this.errors = [err.error.message];
-        } else {
-          this.errors = err.error.errors.map((e: any) => e.msg);
-        }
+        this.errors = err.error.errors.map((e: any) => e.msg);
       }
     );
   }

@@ -1,0 +1,18 @@
+<div class="chat">
+  <div class="messages">
+    <span class="title">Messages</span>
+    <button class="button--primary button__new">New Chat</button>
+    <div class="messages__list">
+      <app-message-list-item
+        *ngFor="let message of messages; index as i"
+        [contact]="message.contact"
+        [preview]="message.message"
+        [selected]="i === selected"
+        (click)="onMessageClick(i)"
+      ></app-message-list-item>
+    </div>
+  </div>
+  <div class="content">
+    <app-message-view></app-message-view>
+  </div>
+</div>

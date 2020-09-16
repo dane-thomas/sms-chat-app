@@ -25,7 +25,14 @@ router.post(
       .bail()
       .trim()
       .normalizeEmail(),
-    check("name").isLength({ min: 1 }).withMessage("Name is required").trim(),
+    check("firstName")
+      .isLength({ min: 1 })
+      .withMessage("First and last names are required")
+      .trim(),
+    check("lastName")
+      .isLength({ min: 1 })
+      .withMessage("First and last names are required")
+      .trim(),
     check("password")
       .isLength({ min: 8 })
       .withMessage("Password must be at least 8 characters long")

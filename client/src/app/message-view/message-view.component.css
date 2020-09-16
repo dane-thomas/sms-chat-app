@@ -1,0 +1,39 @@
+.message-view {
+  display: grid;
+  grid-template-rows: 1fr 9fr 1fr;
+  height: 100vh;
+}
+
+.message__header {
+  background: #ffe9bf;
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding: 0.5em 1em;
+}
+
+.message__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.message--sent {
+  align-self: flex-end;
+}
+
+.message__input {
+  background: #ffe9bf;
+  display: flex;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+.message__input__box {
+  background: #ffe9bf;
+  border: none;
+  resize: none;
+  flex-grow: 1;
+  margin: 0.5rem;
+  max-height: 3em;
+}
