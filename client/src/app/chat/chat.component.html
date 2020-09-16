@@ -1,7 +1,15 @@
 <div class="chat">
   <div class="messages">
-    <span class="title">Messages</span>
-    <button class="button--primary button__new">New Chat</button>
+    <div class="title-section">
+      <span class="title">Messages</span>
+      <button
+        (click)="onLogoutClick()"
+        class="button--secondary button--logout"
+      >
+        Logout
+      </button>
+    </div>
+    <button class="button--primary button--new">New Chat</button>
     <div class="messages__list">
       <app-message-list-item
         *ngFor="let message of messages; index as i"

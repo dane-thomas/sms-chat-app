@@ -42,6 +42,10 @@ export class ChatComponent implements OnInit {
     );
   }
 
+  onLogoutClick(): void {
+    this.auth.logout();
+  }
+
   onMessageClick(i: number): void {
     this.selected = i;
   }

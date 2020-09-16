@@ -12,15 +12,22 @@
   padding-top: 0.5rem;
 }
 
+.title-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .title {
   font-size: 1.7rem;
   font-weight: 600;
-  margin: 0.5rem 1rem;
+  margin: 0 1rem;
 }
 
-.button__new {
-  margin: 0.5rem 1rem;
+.button--logout {
+  color: black;
 }
 
-.content {
+.button--new {
+  margin: 0.5rem 1rem;
 }
