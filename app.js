@@ -9,10 +9,15 @@ const express = require("express");
 const logger = require("morgan");
 const passport = require("passport");
 const path = require("path");
+const Socket = require("socket.io");
+
+const io = Socket();
 
 const routesAPI = require("./api/routes/index");
+const chatAPI = require("./api/chat/chat").startChat(io);
 
 const app = express();
+app.io = io;
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -26,15 +31,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(passport.initialize());
 app.use("/api", routesAPI);
+app.use("/api/chat", chatAPI);
 
-// send client
+// serve client
 app.use("/", express.static(path.join(__dirname, "./client/dist/client")));
 app.all("*", function (req, res) {
   res.status(200).sendFile(`/`, { root: "./client/dist/client" });
 });
-// app.get("/", (req, res) => {
-//   res.sendFile("index.html");
-// });
 
 // catch 404 and send to error handler
 app.use((req, res, next) => {

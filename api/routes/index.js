@@ -12,6 +12,10 @@ const auth = jwt({
   userProperty: "payload",
 });
 
+const chatRoutes = require("./chat").chatRoutes(auth);
+
+router.use("/chat", chatRoutes);
+
 // profile
 router.get("/profile", auth, ctrlProfile.profileRead);
 
