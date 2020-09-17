@@ -12,6 +12,10 @@
   padding-top: 0.5rem;
 }
 
+.messages__list {
+  width: 100%;
+}
+
 .title-section {
   display: flex;
   justify-content: space-between;

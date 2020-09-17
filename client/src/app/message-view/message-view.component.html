@@ -1,7 +1,12 @@
 <div class="message-view">
   <div class="message__header">A person</div>
-  <div class="message__content">
-    <app-message-bubble *ngFor="let message of messages" [message]="message">
+  <div class="message__content" #chatwindow>
+    <app-message-bubble
+      *ngFor="let message of messages; let last = last"
+      [message]="message"
+      #messagebubbles
+    >
+      {{ last ? scrollToBottom() : "" }}
     </app-message-bubble>
   </div>
   <form (submit)="send()" class="message__input">

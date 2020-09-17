@@ -37,13 +37,6 @@ export class AuthenticationService {
     this.token = token;
   }
 
-  private getToken(): string {
-    if (!this.token) {
-      this.token = localStorage.getItem('dane-chat-token');
-    }
-    return this.token;
-  }
-
   private request(
     method: 'post' | 'get',
     type: 'login' | 'register' | 'profile',
@@ -69,6 +62,13 @@ export class AuthenticationService {
     );
 
     return request;
+  }
+
+  public getToken(): string {
+    if (!this.token) {
+      this.token = localStorage.getItem('dane-chat-token');
+    }
+    return this.token;
   }
 
   public logout(): void {

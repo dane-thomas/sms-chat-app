@@ -1,7 +1,7 @@
 <div
   class="message-bubble"
   [class.message--sent]="message.sent"
-  [class.message--received]="message.received"
+  [class.message--received]="!message.sent"
 >
   {{ message?.message }}
 </div>

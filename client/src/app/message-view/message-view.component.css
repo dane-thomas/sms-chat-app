@@ -1,10 +1,11 @@
 .message-view {
-  display: grid;
-  grid-template-rows: 1fr 9fr 1fr;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
 .message__header {
+  flex: none;
   background: #ffe9bf;
   font-size: 1.7rem;
   font-weight: 500;
@@ -12,10 +13,8 @@
 }
 
 .message__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .message--sent {
@@ -23,6 +22,7 @@
 }
 
 .message__input {
+  flex: none;
   background: #ffe9bf;
   display: flex;
   margin: 1rem;

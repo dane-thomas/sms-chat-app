@@ -9,18 +9,27 @@
         Logout
       </button>
     </div>
-    <button class="button--primary button--new">New Chat</button>
+    <button (click)="onNewClick()" class="button--primary button--new">
+      New Chat
+    </button>
     <div class="messages__list">
       <app-message-list-item
-        *ngFor="let message of messages; index as i"
-        [contact]="message.contact"
-        [preview]="message.message"
+        *ngFor="let message of conversations; index as i"
+        [contact]="message.number"
+        [preview]="message.lastMessageText"
         [selected]="i === selected"
         (click)="onMessageClick(i)"
       ></app-message-list-item>
     </div>
   </div>
   <div class="content">
-    <app-message-view></app-message-view>
+    <div *ngIf="selected === undefined" class="content__placeholder">
+      Click a message to start chatting or create a new chat!
+    </div>
+    <app-message-view
+      *ngIf="selected !== undefined"
+      [phoneNumber]="conversations[selected].number"
+      [conversationId]="conversations[selected]._id"
+    ></app-message-view>
   </div>
 </div>

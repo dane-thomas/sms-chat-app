@@ -16,7 +16,6 @@ module.exports.conversationsRead = async (req, res) => {
       const conversations = await Conversation.find()
         .where("user", req.payload._id)
         .exec();
-      console.log(conversations);
       return res.status(200).json(conversations);
     } catch (error) {
       return res.status(400).json(error);
@@ -47,7 +46,7 @@ module.exports.createConversation = async (req, res) => {
 
     try {
       await conversation.save();
-      return res.status(200).json({ conversationId: conversation._id });
+      return res.status(200).json(conversation);
     } catch (error) {
       return res.status(400).json(error);
     }
@@ -61,16 +60,15 @@ module.exports.messagesRead = async (req, res) => {
       .status(401)
       .json({ message: "UnauthorizedError: login to get messages" });
   } else {
-    if (!req.body.conversationId) {
+    if (!req.query.conversationId) {
       return res
         .status(400)
         .json({ message: "Conversation id is missing in request" });
     }
     try {
       const messages = await Message.find()
-        .where("conversation", req.body.conversationId)
+        .where("conversation", req.query.conversationId)
         .exec();
-      console.log(messages);
       return res.status(200).json(messages);
     } catch (error) {
       return res.status(400).json(error);
@@ -86,7 +84,6 @@ module.exports.sendMessage = async (req, res) => {
       .json({ message: "UnauthorizedError: login to get messages" });
   } else {
     if (!req.body.to || !req.body.message || !req.body.conversationId) {
-      console.log(req.body);
       return res.status(400).json({ message: "Missing values in request" });
     }
 
@@ -96,20 +93,19 @@ module.exports.sendMessage = async (req, res) => {
     );
 
     try {
-      // save message to db
-      const messageId = await createMessage(
-        req.body.message,
-        req.body.conversationId,
-        true
-      );
       // send message via twilio
       const message = await client.messages.create({
         body: req.body.message,
         from: process.env.TWILIO_NUMBER,
         to: req.body.to,
       });
-      console.log(message);
-      return res.status(200).json({ message: "Message sent" });
+      // save message to db
+      const savedMessage = await createMessage(
+        req.body.message,
+        req.body.conversationId,
+        true
+      );
+      return res.status(200).json(savedMessage);
     } catch (error) {
       return res.status(400).json(error);
     }

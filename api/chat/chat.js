@@ -11,10 +11,6 @@ module.exports.startChat = (io) => {
   io.on("connection", (socket) => {
     console.log(`Connected ${socket.id}`);
 
-    io.on("sms-received", () => {
-      //TODO
-    });
-
     socket.on("disconnect", () => {
       console.log(`Socket ${socket.id} disconnected`);
     });
@@ -33,7 +29,6 @@ module.exports.startChat = (io) => {
         conversationId,
         false
       );
-      console.log(message);
       io.emit("sms-received", message);
       return res.status(200).send();
     } catch (error) {
