@@ -1,5 +1,5 @@
 <div class="message-view">
-  <div class="message__header">A person</div>
+  <div class="message__header">{{ phoneNumber }}</div>
   <div class="message__content" #chatwindow>
     <app-message-bubble
       *ngFor="let message of messages; let last = last"

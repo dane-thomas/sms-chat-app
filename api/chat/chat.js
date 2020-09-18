@@ -29,7 +29,7 @@ module.exports.startChat = (io) => {
         conversationId,
         false
       );
-      io.emit("sms-received", message);
+      io.emit("sms-received");
       return res.status(200).send();
     } catch (error) {
       console.log(error);

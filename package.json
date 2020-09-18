@@ -2,8 +2,14 @@
   "name": "chat-app",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "preinstall": "npm install -g @angular/cli",
+    "postinstall": "cd client && npm i --dev && npm run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

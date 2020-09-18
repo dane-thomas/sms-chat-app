@@ -1,4 +1,4 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 require("./api/models/db");
 require("./api/config/passport");
